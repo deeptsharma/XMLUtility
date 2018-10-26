@@ -29,11 +29,20 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 
+/**
+ * Class provides methods to support basic XML operations like
+ * Converting String to Document, Document to String, getting tag value, adding new tag, 
+ * modifying tag value, remove tag from Document, getting attribute value, adding new attribute, 
+ * modifying attribute value, remove attribute from Document, get formatted XML
+ * 
+ * @author Deept Sharma
+ * @version 1.0
+ */
 public class XMLUtil {
 
 	/**
 	 * Function to convert String to Document
-	 * @param xmlString
+	 * @param XML String
 	 * @return Document
 	 */
 	public static Document getXMLDocument(String xmlString) {
@@ -60,8 +69,8 @@ public class XMLUtil {
 	
 	/**
 	 * Function to Convert Document to String
-	 * @param xmlString
-	 * @return String
+	 * @param Document
+	 * @return XML String
 	 */
 	public static String getXMLText(Document xmlString) {
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -80,9 +89,9 @@ public class XMLUtil {
 
 	/**
 	 * Function to get tag/attribute value from Document
-	 * parent/tag to get tag value	or  parent@attribute to get attribute value 
+	 *  
 	 * @param document
-	 * @param pathString
+	 * @param (parent/tag - to get tag value) OR (parent@attribute - to get attribute value)
 	 * @return value
 	 */
 	public static String getValueFromDom(Document document, String inputString) {
@@ -106,10 +115,10 @@ public class XMLUtil {
 	
 	/**
 	 * Function to modify tag or attribute value
-	 * parent/tag to modify tag element value  or parent@attribute to modify attribute value
+	 * 
 	 * @param document
-	 * @param pathString
-	 * @param pathValue
+	 * @param (parent/tag - to modify tag value) OR (parent@attribute - to modify attribute value)
+	 * @param value to set
 	 */
 	public static void setValueInDom(Document document, String pathString, String pathValue) {
 		try {
@@ -157,9 +166,9 @@ public class XMLUtil {
 	/**
 	 * Function to get Attribute value
 	 * @param document
-	 * @param Parent tagName
-	 * @param attributeName
-	 * @return value
+	 * @param Parent tag name
+	 * @param attribute Name
+	 * @return attribute value
 	 */
 	public static String getAttributeValue(Document document, String tagName, String attributeName) {
 		String retVal=null;
@@ -180,9 +189,9 @@ public class XMLUtil {
 	/**
 	 * Function to modify attribute value in Document
 	 * @param document
-	 * @param tagName
-	 * @param attributeName
-	 * @param attributeVal
+	 * @param tag name
+	 * @param attribute Name
+	 * @param attribute Value to set
 	 */
 	public static void setAttributeValue(Document document, String tagName, String attributeName, String attributeVal) {
 		try {
@@ -201,9 +210,10 @@ public class XMLUtil {
 	
 	/**
 	 * Function to remove Attribute from Document
+	 * 
 	 * @param document
-	 * @param tagName
-	 * @param attributeName
+	 * @param tag Name
+	 * @param attribute Name to remove from document
 	 */
 	public static void removeAttribute(Document document, String tagName, String attributeName) {
 		try {
@@ -220,10 +230,11 @@ public class XMLUtil {
 	
 	/**
 	 * Function to add tag to Document
+	 * 
 	 * @param document
-	 * @param parentTag
-	 * @param nodeName
-	 * @param nodeValue
+	 * @param parent Tag name
+	 * @param tag name to add
+	 * @param new tag value
 	 */
 	public static void addTagElement(Document document, String parentTag, String nodeName, String nodeValue) {
 		try {
@@ -256,10 +267,11 @@ public class XMLUtil {
 	
 	/**
 	 * Function to get tag element value from document
+	 * 
 	 * @param document
-	 * @param parentTag
-	 * @param childTag
-	 * @return value
+	 * @param parent Tag name
+	 * @param child Tag name
+	 * @return child tag value
 	 */
 	public static String getTagElementValue(Document document, String parentTag, String childTag) {
 		if (parentTag == null || childTag == null) {
@@ -282,10 +294,11 @@ public class XMLUtil {
 	
 	/**
 	 * Function to modify tag element value
+	 * 
 	 * @param document
-	 * @param parentTag
-	 * @param tagName
-	 * @param tagValue
+	 * @param parent Tag name
+	 * @param child tag Name
+	 * @param new value to set
 	 */
 	public static void setTagElementValue(Document document, String parentTag, String tagName, String tagValue) {
 		try {
@@ -309,9 +322,10 @@ public class XMLUtil {
 
 	/**
 	 * Function to remove tag from Document
+	 * 
 	 * @param document
-	 * @param parentTag
-	 * @param childTag
+	 * @param parent Tag name
+	 * @param tag name to remove
 	 */
 	public static void removeTagElement(Document document, String parentTag, String childTag) {
 		if (parentTag == null || childTag == null) {
@@ -333,6 +347,7 @@ public class XMLUtil {
 	
 	/**
 	 * Function to get Formatted XML with indentation 2
+	 * 
 	 * @param document
 	 * @return formatted XML
 	 */
